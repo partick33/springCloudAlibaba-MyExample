@@ -1,7 +1,7 @@
 # springCloudAlibaba-MyExample
 # springCloudAlibaba简单搭建例子
 # 项目介绍
-# 搭建了SpringCloudAlibaba的基本框架
+# 搭建了SpringCloudAlibaba的基本框架（为了方便没有搭建聚合工程，都是单独的项目）
 # 1.部署搭建Nacos服务，可根据官方文档进行搭建https://nacos.io/zh-cn/docs/quick-start.html
 # 2.引入OpenFeign，使用注解进行服务调用，参考官方文档https://spring.io/projects/spring-cloud-openfeign#overview
 # 3.引入Sentinel，作为流量控制组件，可以通过sentinel客户端界面配置流控熔断等参数，可以通过Sentinel Starter内置类FlowRuleManager.loadRules()用来使用代码设置（例子在ArticleController的initFlowRule方法）,可以通过Ncaos持久化配置
