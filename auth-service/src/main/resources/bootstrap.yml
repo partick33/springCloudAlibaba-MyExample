@@ -8,9 +8,9 @@ spring:
     nacos:
       config:
         file-extension: yml
-        server-addr:
-        username:
-        password:
+        server-addr: 101.34.34.129:8848
+        username: nacos
+        password: nacos
         shared-configs:
           - data-id: common.yml #Nacos共享配置
             group: DEFAULT_GROUP
