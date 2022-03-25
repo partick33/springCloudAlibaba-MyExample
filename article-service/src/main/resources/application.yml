@@ -1,0 +1,67 @@
+#spring:
+#  application:
+#    name: article-service #应用/微服务名字
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr:  #nacos服务器地址
+#        username:  #用户名
+#        password:  #密码
+#    sentinel:
+#      transport:
+#        dashboard: localhost:9100 #sentinel-dashboard服务器地址
+#      datasource:
+#        flow-ds:
+#          nacos:
+#            server-addr:
+#            dataId: article-service-flow-rules
+#            groupId: DEFAULT_GROUP
+#            ruleType: flow #flow代表流控规则,degrade代表熔断规则
+#            username:
+#            password:
+#        grade-ds:
+#          nacos:
+#            server-addr:
+#            dataId: article-service-degrade-rules
+#            groupId: DEFAULT_GROUP
+#            ruleType: degrade #flow代表流控规则,degrade代表熔断规则
+#            username:
+#            password:
+#  datasource: #JDBC连接配置
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url:
+#    username:
+#    password:
+#
+#server:
+#  port: 6100 #端口号
+#
+#mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: true
+#  mapper-locations: classpath:mapper/*.xml
+#
+#logging:
+#  level:
+#    root: info
+#
+#feign:
+#  sentinel:
+#    enabled: true #开启基于Sentinel的OpenFeign调用限流熔断
+#  client:
+#    config:
+#      default:
+#        loggerLevel: HEADERS #将每一次OpenFeign的请求头信息在日志输出
+#
+##设置对video-service通信时使用的负载均衡策略
+#video-service: #要通信的远程微服务名字
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #随机策略
+#
+##开启健康检查,开放所有监控指标
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'

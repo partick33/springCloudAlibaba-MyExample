@@ -1,0 +1,24 @@
+#spring:
+#  application:
+#    name: video-service #应用/微服务名字
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr:  #nacos服务器地址
+#        username:  #用户名
+#        password:  #密码
+#  datasource: #JDBC连接配置
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url:
+#    username:
+#    password:
+#
+#server:
+#  port: 6000 #端口号
+#mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: true
+#  mapper-locations: classpath:mapper/*.xml
+#
+#

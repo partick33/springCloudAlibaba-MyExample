@@ -1,0 +1,57 @@
+#spring:
+#  application:
+#    name: gateway-service #微服务 应用名字
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr:  #nacos服务器地址
+#        username:
+#        password:
+#    gateway: #取消gateway通过nacos实现自动路由转发
+#      discovery:
+#        locator:
+#          enabled: false
+#      routes:
+#        - id: article-service-route
+#          #gateway自动从nacos获取article-service可用节点进行转发
+#          #默认会将所有Gateway URI转发到article-service上
+#          uri: lb://article-service
+#          predicates:
+#            - Path=/article-service/** #:9000/as/list -> :6100/as/list
+#            - After=2022-03-20T00:00:00.000+08:00[Asia/Shanghai] #2022年3月20日微服务上线,该接口才能对外暴露
+#          filters:
+#            - StripPrefix=1 #忽略掉第一层前缀进行转发 :9000/as/list->:8100/list
+#            - AddResponseHeader=X-Request-yellow, blue #增加返回头相关信息
+#        - id: auth_service_route #认证中心路由配置
+#          uri: lb://auth-service
+#          predicates:
+#            - Path=/auth-service/**
+#          filters:
+#            - StripPrefix=1
+#      globalcors:
+#        cors-configurations:
+#          '[/**]': #gateway网关上所有URI都应用下面的跨域设计
+#            allowed-credentials: true #允许携带认证信息
+#            allowed-origins:
+#              - "*" #允许所有来源进行跨域访问
+#            allowed-headers: "*"
+#            allowed-methods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#              - OPTIONS
+#            max-age: 3600
+#server:
+#  port: 9000
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#
+#logging:
+#  level:
+#    root: debug
+#
+#

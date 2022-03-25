@@ -1,0 +1,22 @@
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr:  #nacos服务器地址
+#        username:  #用户名
+#        password: #密码
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url:
+#    username:
+#    password:
+#  application:
+#    name: auth-service
+#  jackson:
+#    default-property-inclusion: non_null
+#server:
+#  port: 6200
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  mapper-locations: classpath:mapper/*.xml
